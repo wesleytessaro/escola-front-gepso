@@ -25,5 +25,10 @@ export class RelatorioService {
   async getCsvAtuador(): Promise<CsvAtuador> {
     return this.http.get<CsvAtuador>(`${this.baseUrl}/findAllActuatorByDates?fromDate=00000000&toDate=00000000`).toPromise();
   }
-
+  async getCsvSensorD(date_from:string,date_to:string): Promise<CsvSensor> {
+    return this.http.get<CsvSensor>(`${this.baseUrl}findAllSensorByDates?fromDate=${date_from}&toDate=${date_to}`).toPromise();
+  }
+  async getCsvAtuadorD(date_from:string,date_to:string): Promise<CsvAtuador> {
+    return this.http.get<CsvAtuador>(`${this.baseUrl}findAllActuatorByDates?fromDate=${date_from}&toDate=${date_to}`).toPromise();
+  }
 }

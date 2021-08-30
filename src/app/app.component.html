@@ -1,10 +1,11 @@
+
 <nav class="navbar navbar-dark bg-dark">
   <a class="navbar-brand">Dashboard E. M Jõao de Lima Paes</a>
 </nav>
 <router-outlet>
   <button (click)="goToPage('Relatorio');" class="btn btn-success">Relatórios</button>
 </router-outlet>
-<h4 class="display-4" id="centralizarTexto">Painel de Monitoramento - RealTime</h4>
+<h4 class="display-4" id="centralizarTexto">Painel de Monitoramento</h4>
 
 <p class="h6">Última Leitura: <span class="badge bg-info text-dark">{{ sensor.datetime | date : "dd.MM.y HH:mm:ss": '-0800'}} </span>
   Horário Nova Andradina - MS </p>
@@ -162,7 +163,9 @@
   </div>
   <hr>
 
+  <h6  class="centralizar">Todos os direitos reservados Grupo de Pesquisa de Solos (GPESO/IFMS-NA) - 2021</h6>
+  <br>
+<nav class="navbar navbar-dark bg-light" id="centralizar">
 
-<nav class="navbar navbar-dark bg-light">
   <img src="./assets/logo.png" id="logo">
 </nav>

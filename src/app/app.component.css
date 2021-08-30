@@ -1,5 +1,7 @@
 .centralizar{
   text-align: center;
+  align-items: center;
+
 }
 #divSensoresAmbiente{
   background-color: rgb(231, 245, 231);
@@ -19,7 +21,9 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+
 }
+
 
 
 .stock-card-container {

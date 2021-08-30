@@ -30,71 +30,61 @@
 <hr>
 
 
-</div>
-<br>
-<pre>From: {{ fromDate | json }} </pre>
-<pre>To: {{ toDate | json }} </pre>
-
-<hr>
 
 <div id="divSensoresAmbiente">
-<h4 class="centralizar">Sensores de ambiente</h4>
-<div class="container" >
-  <div class="row">
-    <div class="col-md-4">
-      <h6 class="centralizar">Temperatura</h6>
-      <chart [type]="type" [data]="data" [options]="options"></chart>
-    </div>
-    <div class="col-md-4">
-      <h6 class="centralizar">Umidade</h6>
-      <chart [type]="type" [data]="data" [options]="options"></chart>
-    </div>
-    <div class="col-md-4">
-      <h6 class="centralizar">Pressão</h6>
-      <chart [type]="type" [data]="data" [options]="options"></chart>
-    </div>
-    <div class="col-md-4">
-      <h6 class="centralizar">Luminosidade</h6>
-      <chart [type]="type" [data]="data" [options]="options"></chart>
-    </div>
-  </div>
-</div>
-</div>
-<hr>
-
-<div id="divSensoresSolo">
-<h4 class="centralizar">Sensores de Solo</h4>
-<div class="container">
-  <div class="row">
-    <div class="col-md-4">
-      <h6 class="centralizar">Temperatura</h6>
-      <chart [type]="type" [data]="data" [options]="options"></chart>
-    </div>
-    <div class="col-md-4">
-      <h6 class="centralizar">Umidade</h6>
-      <chart [type]="type" [data]="data" [options]="options"></chart>
-    </div>
-    <div class="col-md-4">
-      <h6 class="centralizar">condutividade</h6>
-      <chart [type]="type" [data]="data" [options]="options"></chart>
+  <h4 class="centralizar">Sensores de ambiente</h4>
+  <div class="container" >
+    <div class="row">
+      <div class="col-md-6">
+        <h6 class="centralizar">Temperatura</h6>
+        <chart [type]="type" [data]="dataTemperatura_atm" [options]="options"></chart>
+      </div>
+      <div class="col-md-6">
+        <h6 class="centralizar">Umidade</h6>
+        <chart [type]="type" [data]="dataUmidade_atm" [options]="options"></chart>
+      </div>
+      <div class="col-md-6">
+        <h6 class="centralizar">Pressão</h6>
+        <chart [type]="type" [data]="dataPressao" [options]="options"></chart>
+      </div>
+      <div class="col-md-6">
+        <h6 class="centralizar">Luminosidade</h6>
+        <chart [type]="type" [data]="dataLuminosidade" [options]="options"></chart>
+      </div>
     </div>
   </div>
-</div>
-</div>
-<hr>
-
-<div id="divAtuador" >
-<h4 class="centralizar">Atuador</h4>
-<div class="container">
-  <div class="row">
-    <div class="col-md-6 centralizar">
-      <h6 class="centralizar">Lámina</h6>
-      <chart [type]="type2" [data]="data2" [options]="options"></chart>
-    </div>
-
   </div>
-</div>
-</div>
-<hr>
+  <hr>
 
-<button (click)="request();" class="btn btn-success" >Download .CSV </button>
+  <div id="divSensoresSolo">
+  <h4 class="centralizar">Sensores de Solo</h4>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h6 class="centralizar">Temperatura</h6>
+        <chart [type]="type" [data]="dataTemperaturaSolo" [options]="options"></chart>
+      </div>
+      <div class="col-md-6">
+        <h6 class="centralizar">Umidade</h6>
+        <chart [type]="type" [data]="dataUmidadeSolo" [options]="options"></chart>
+      </div>
+      <div class="col-md-6">
+        <h6 class="centralizar">condutividade</h6>
+        <chart [type]="type" [data]="dataCondutividade" [options]="options"></chart>
+      </div>
+    </div>
+  </div>
+  </div>
+  <hr>
+
+  <div id="divAtuador" >
+  <h4 class="centralizar">Atuador</h4>
+  <div class="container">
+    <div class="row">
+        <h6 class="centralizar">Lámina</h6>
+        <chart [type]="type" [data]="dataLaminaAtuador" [options]="options"></chart>
+    </div>
+  </div>
+  </div>
+
+<button (click)="requestDownload();" class="btn btn-success" >Download .CSV </button>
