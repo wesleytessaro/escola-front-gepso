@@ -1,0 +1,100 @@
+<router-outlet>
+  <button (click)="back();" class="btn btn-info" >Esconder Aba</button>
+</router-outlet>
+
+<div id="relatorioMargens">
+<h4 class="display-6" id="centralizarTexto">Seletor de dados para visualização</h4>
+<p>Escolha o intervalo de dadas que será requisitado </p>
+
+<ngb-datepicker #dp (dateSelect)="onDateSelection($event)" [displayMonths]="2" [dayTemplate]="t" outsideDays="hidden">
+</ngb-datepicker>
+
+<ng-template #t let-date let-focused="focused">
+  <span class="custom-day"
+        [class.focused]="focused"
+        [class.range]="isRange(date)"
+        [class.faded]="isHovered(date) || isInside(date)"
+        (mouseenter)="hoveredDate = date"
+        (mouseleave)="hoveredDate = null">
+    {{ date.day }}
+  </span>
+</ng-template>
+
+
+<p>Período Escolhido: {{fromDate.day}}/{{fromDate.month}}/{{fromDate.year}} - {{returnDataFinal()}}
+</p>
+<div>
+  <button (click)="request();" class="btn btn-success" >Obter Dados</button>
+  <br>
+  </div>
+<hr>
+
+
+</div>
+<br>
+<pre>From: {{ fromDate | json }} </pre>
+<pre>To: {{ toDate | json }} </pre>
+
+<hr>
+
+<div id="divSensoresAmbiente">
+<h4 class="centralizar">Sensores de ambiente</h4>
+<div class="container" >
+  <div class="row">
+    <div class="col-md-4">
+      <h6 class="centralizar">Temperatura</h6>
+      <chart [type]="type" [data]="data" [options]="options"></chart>
+    </div>
+    <div class="col-md-4">
+      <h6 class="centralizar">Umidade</h6>
+      <chart [type]="type" [data]="data" [options]="options"></chart>
+    </div>
+    <div class="col-md-4">
+      <h6 class="centralizar">Pressão</h6>
+      <chart [type]="type" [data]="data" [options]="options"></chart>
+    </div>
+    <div class="col-md-4">
+      <h6 class="centralizar">Luminosidade</h6>
+      <chart [type]="type" [data]="data" [options]="options"></chart>
+    </div>
+  </div>
+</div>
+</div>
+<hr>
+
+<div id="divSensoresSolo">
+<h4 class="centralizar">Sensores de Solo</h4>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <h6 class="centralizar">Temperatura</h6>
+      <chart [type]="type" [data]="data" [options]="options"></chart>
+    </div>
+    <div class="col-md-4">
+      <h6 class="centralizar">Umidade</h6>
+      <chart [type]="type" [data]="data" [options]="options"></chart>
+    </div>
+    <div class="col-md-4">
+      <h6 class="centralizar">condutividade</h6>
+      <chart [type]="type" [data]="data" [options]="options"></chart>
+    </div>
+  </div>
+</div>
+</div>
+<hr>
+
+<div id="divAtuador" >
+<h4 class="centralizar">Atuador</h4>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 centralizar">
+      <h6 class="centralizar">Lámina</h6>
+      <chart [type]="type2" [data]="data2" [options]="options"></chart>
+    </div>
+
+  </div>
+</div>
+</div>
+<hr>
+
+<button (click)="request();" class="btn btn-success" >Download .CSV </button>

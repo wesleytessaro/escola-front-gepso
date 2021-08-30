@@ -1,0 +1,33 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+a {
+  padding-left: 10px;
+}
+#centralizarTexto{
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+#logo{
+  width: 20%;
+  margin-left: auto;
+  margin-right: auto;
+  height: auto;
+}
+#iconesSVG{
+  width: 20%;
+  height: auto;
+
+  margin-left: auto;
+  margin-right: auto;
+
+}
+th{
+  border: 1px solid black;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+#divTabSensores{
+  padding: 1%;
+}

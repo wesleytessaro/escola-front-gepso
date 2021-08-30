@@ -1,0 +1,168 @@
+<nav class="navbar navbar-dark bg-dark">
+  <a class="navbar-brand">Dashboard E. M Jõao de Lima Paes</a>
+</nav>
+<router-outlet>
+  <button (click)="goToPage('Relatorio');" class="btn btn-success">Relatórios</button>
+</router-outlet>
+<h4 class="display-4" id="centralizarTexto">Painel de Monitoramento - RealTime</h4>
+
+<p class="h6">Última Leitura: <span class="badge bg-info text-dark">{{ sensor.datetime | date : "dd.MM.y HH:mm:ss": '-0800'}} </span>
+  Horário Nova Andradina - MS </p>
+
+  <div class="container">
+
+  <div class="stock-card-container">
+    <img src="https://www.svgrepo.com/show/244215/gauge-pressure.svg" id="iconesSVG">
+    <div class="stock-info-container">
+      <h2>Temperatura</h2>
+      <p>ATM</p>
+    </div>
+    <div class="stock-value-container">
+      <span class="value">{{sensor.temperatura_atm}}ºC</span>
+    </div>
+  </div>
+
+  <div class="stock-card-container">
+    <img src="https://www.svgrepo.com/show/106456/humidity.svg" id="iconesSVG">
+    <div class="stock-info-container">
+      <h2>Umidade</h2>
+      <p>ATM</p>
+    </div>
+    <div class="stock-value-container">
+      <span class="value">{{sensor.umidade_atm}}%</span>
+    </div>
+  </div>
+
+  <div class="stock-card-container">
+    <img src="https://www.svgrepo.com/show/244215/gauge-pressure.svg" id="iconesSVG">
+    <div class="stock-info-container">
+      <h2>Pressão</h2>
+      <p>ATM</p>
+    </div>
+    <div class="stock-value-container">
+      <span class="value">{{sensor.pressao_atm}}kpa</span>
+    </div>
+  </div>
+
+ <div class="stock-card-container">
+  <img src="https://www.svgrepo.com/show/340559/light.svg" id="iconesSVG">
+  <div class="stock-info-container">
+      <h2>Luminosidade</h2>
+      <p>-</p>
+    </div>
+    <div class="stock-value-container">
+      <span class="value">{{sensor.luminosidade}}%</span>
+    </div>
+  </div>
+
+ <div class="stock-card-container">
+  <img src="https://www.svgrepo.com/show/341059/soil-temperature.svg" id="iconesSVG">
+  <div class="stock-info-container">
+      <h2>Temperatura</h2>
+      <p>Solo</p>
+    </div>
+    <div class="stock-value-container">
+      <span class="value">{{sensor.temperatura_solo}} ºC</span>
+    </div>
+  </div>
+
+  <div class="stock-card-container">
+    <img src="https://www.svgrepo.com/show/341056/soil-moisture-field.svg" id="iconesSVG">
+    <div class="stock-info-container">
+        <h2>Umidade</h2>
+        <p>Solo</p>
+      </div>
+      <div class="stock-value-container">
+        <span class="value">{{sensor.umidade_solo}} %</span>
+      </div>
+    </div>
+
+    <div class="stock-card-container">
+      <img src="https://www.svgrepo.com/show/111181/energy.svg" id="iconesSVG">
+      <div class="stock-info-container">
+          <h2>Condutividade</h2>
+          <p>-</p>
+        </div>
+        <div class="stock-value-container">
+          <span class="value">{{sensor.condutividade}} mSCm</span>
+        </div>
+      </div>
+
+      <div class="stock-card-container-irrigacao">
+        <img src="https://www.svgrepo.com/show/144985/irrigation.svg" id="iconesSVG">
+        <div class="stock-info-container">
+            <h2>Irrigação</h2>
+            <p>-</p>
+          </div>
+          <div class="stock-value-container">
+            <span class="value">{{estadoIrrigacao()}}</span>
+            <span class="value">{{atuador.lamina}}m<sup>3</sup>  </span>
+          </div>
+        </div>
+
+</div>
+
+
+  <hr>
+
+<div id="divSensoresAmbiente">
+  <h4 class="centralizar">Sensores de ambiente</h4>
+  <div class="container" >
+    <div class="row">
+      <div class="col-md-6">
+        <h6 class="centralizar">Temperatura</h6>
+        <chart [type]="type" [data]="dataTemperatura_atm" [options]="options"></chart>
+      </div>
+      <div class="col-md-6">
+        <h6 class="centralizar">Umidade</h6>
+        <chart [type]="type" [data]="dataUmidade_atm" [options]="options"></chart>
+      </div>
+      <div class="col-md-6">
+        <h6 class="centralizar">Pressão</h6>
+        <chart [type]="type" [data]="dataPressao" [options]="options"></chart>
+      </div>
+      <div class="col-md-6">
+        <h6 class="centralizar">Luminosidade</h6>
+        <chart [type]="type" [data]="dataLuminosidade" [options]="options"></chart>
+      </div>
+    </div>
+  </div>
+  </div>
+  <hr>
+
+  <div id="divSensoresSolo">
+  <h4 class="centralizar">Sensores de Solo</h4>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h6 class="centralizar">Temperatura</h6>
+        <chart [type]="type" [data]="dataTemperaturaSolo" [options]="options"></chart>
+      </div>
+      <div class="col-md-6">
+        <h6 class="centralizar">Umidade</h6>
+        <chart [type]="type" [data]="dataUmidadeSolo" [options]="options"></chart>
+      </div>
+      <div class="col-md-6">
+        <h6 class="centralizar">condutividade</h6>
+        <chart [type]="type" [data]="dataCondutividade" [options]="options"></chart>
+      </div>
+    </div>
+  </div>
+  </div>
+  <hr>
+
+  <div id="divAtuador" >
+  <h4 class="centralizar">Atuador</h4>
+  <div class="container">
+    <div class="row">
+        <h6 class="centralizar">Lámina</h6>
+        <chart [type]="type" [data]="dataLaminaAtuador" [options]="options"></chart>
+    </div>
+  </div>
+  </div>
+  <hr>
+
+
+<nav class="navbar navbar-dark bg-light">
+  <img src="./assets/logo.png" id="logo">
+</nav>
