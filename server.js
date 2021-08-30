@@ -1,14 +1,12 @@
-const express=require('express');
+const express = require('express');
+const path = require('path');
+const nomeApp = process.env.npm_package_name;
+const app = express();
 
-const app=express ();
+app.use(express.static(`${__dirname}/dist/${nomeApp}`));
 
-const PORT = process.env.PORT || 8080;
-
-app.use(express.static(__dirname +'/dist/escola-front'));
-
-app.get('/*',(req,res)=> {
-  res.sendFile(__dirname + '/dist/escola-front/index.html');
+app.get('/*', (req, res) => {
+res.sendFile(path.join(`${__dirname}/dist/${nomeApp}/index.html`));
 });
 
-
-
+app.listen(process.env.PORT || 8080);
