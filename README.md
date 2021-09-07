@@ -1,4 +1,7 @@
-# EscolaFront
+
+# Front end developed for monitoring IOT modules installed at João de Lima Paes school
+
+![Projeto sem título](https://user-images.githubusercontent.com/38302789/132383836-8494d36c-4d00-4230-8827-7e2b07159254.gif)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.3.
 
