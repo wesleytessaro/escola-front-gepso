@@ -10,9 +10,9 @@
 <p class="h6">Última Leitura: <span class="badge bg-info text-dark">{{ sensor.datetime | date : "dd.MM.y HH:mm:ss": '-0800'}} </span>
   Horário Nova Andradina - MS </p>
 
-  <div class="container">
+  <div class="container"  >
 
-  <div class="stock-card-container">
+  <div class="stock-card-container"  >
     <img src="https://www.svgrepo.com/show/244215/gauge-pressure.svg" id="iconesSVG">
     <div class="stock-info-container">
       <h2>Temperatura</h2>
@@ -85,7 +85,7 @@
           <p>-</p>
         </div>
         <div class="stock-value-container">
-          <span class="value">{{sensor.condutividade}} mSCm</span>
+          <span class="value">{{sensor.condutividade}} AD</span>
         </div>
       </div>
 
@@ -97,7 +97,7 @@
           </div>
           <div class="stock-value-container">
             <span class="value">{{estadoIrrigacao()}}</span>
-            <span class="value">{{atuador.lamina}}m<sup>3</sup>  </span>
+            <span class="value">{{getLamina()}} min  </span>
           </div>
         </div>
 

@@ -47,7 +47,7 @@ export class AppComponent {
     this.fetchAtuador();
     this.fetchCsvSensor();
     this.fetchCsvAtuador();
-    this.updateSubscription = interval(1000).subscribe(
+    this.updateSubscription = interval(5000).subscribe(
       (val) => { this.fetchSensor();
         this.fetchAtuador();
         this.fetchCsvSensor();
@@ -196,6 +196,12 @@ export class AppComponent {
       }
       return "Desligada"
 
+    }
+    getLamina():number{
+      var num = Number(this.atuador.lamina/60000); // The Number() only visualizes the type and is not needed
+      var roundedString = num.toFixed(2);
+      var rounded = Number(roundedString);
+      return rounded;
     }
 
 
