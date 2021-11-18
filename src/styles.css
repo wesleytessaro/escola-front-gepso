@@ -31,3 +31,25 @@ th{
 #divTabSensores{
   padding: 1%;
 }
+mwl-gauge {
+  width: 150px;
+  height: 150px;
+  display: block;
+  padding: 0px;
+}
+mwl-gauge > .gauge > .dial {
+  stroke: rgb(255, 255, 255);
+  stroke-width: 2;
+  fill: rgba(0, 0, 0, 0.781);
+}
+mwl-gauge > .gauge > .value {
+  stroke: rgb(0, 140, 255);
+  stroke-width: 7;
+  fill: rgba(0, 0, 0, 0);
+}
+mwl-gauge > .gauge > .value-text {
+  fill: rgb(255, 255, 255);
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 2em;
+}

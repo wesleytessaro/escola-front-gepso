@@ -9,6 +9,7 @@ import { RelatorioService } from './relatorio/relatorio.service';
 import { DatePipe } from '@angular/common';
 import {formatDate} from '@angular/common';
 import { Observable, interval, Subscription } from 'rxjs';
+import ThinkSpeak from './shared/models/thinkspeak-model';
 
 
 
@@ -24,7 +25,7 @@ export class AppComponent {
   atuador=new Atuador ();
   csv_sensor=new Csv_sensor();
   csv_atuador=new Csv_atuador();
-
+  thinkspeak=new ThinkSpeak();
   title = 'Dashboard Escola';
   dataTemperatura_atm;
   dataUmidade_atm;
@@ -52,10 +53,14 @@ export class AppComponent {
         this.fetchAtuador();
         this.fetchCsvSensor();
         this.fetchCsvAtuador();
+        this.fetchThinkSpeak();
     }
 
 );
 
+  }
+  async fetchThinkSpeak(): Promise<void> {
+    this.thinkspeak = await this.relatorioService.getCaixaDgua();
   }
   async fetchSensor(): Promise<void> {
     this.sensor = await this.relatorioService.getSensor();

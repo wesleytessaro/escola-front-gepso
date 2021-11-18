@@ -9,6 +9,7 @@ import { RelatorioComponent } from './relatorio/relatorio.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ChartModule } from 'angular2-chartjs';
 import localePt from '@angular/common/locales/pt';
+import { GaugeModule } from 'angular-gauge';
 
 registerLocaleData(localePt);
 
@@ -20,6 +21,7 @@ registerLocaleData(localePt);
   imports: [
     BrowserModule,
     AppRoutingModule,
+    [GaugeModule.forRoot()],
     HttpClientModule,
     NgbModule,
     ChartModule
