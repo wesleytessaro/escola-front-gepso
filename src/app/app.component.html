@@ -140,7 +140,7 @@
         [max]="100"
         [dialStartAngle]="-90"
         [dialEndAngle]="-90.001"
-        [value]= thinkspeak.field1
+        [value]= getNivelPorcentagem()
         [animated]="true"
         [animationDuration]="1"
       >
@@ -240,7 +240,7 @@
   <h4 class="centralizar">Atuador</h4>
   <div class="container">
     <div class="row">
-      <h6 class="centralizar">Lámina</h6>
+      <h6 class="centralizar">Tempo de irrigação</h6>
       <chart
         [type]="type"
         [data]="dataLaminaAtuador"

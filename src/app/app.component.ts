@@ -183,7 +183,7 @@ export class AppComponent {
     this.dataLaminaAtuador={
       labels: JSON.parse(labelDateTime),
       datasets: [{
-        label: "Lamina (m3)",
+        label: "Lamina (Minutos)",
         data: JSON.parse(dataLamina_),
         backgroundColor: ["#f38b4a"],
       }]
@@ -209,7 +209,11 @@ export class AppComponent {
       return rounded;
     }
 
-
+    getNivelPorcentagem():number{
+      var num=Number(this.thinkspeak.field1);
+      var porcentagem=((60-num)/60)*100;
+      return porcentagem;
+    }
 
 
 
